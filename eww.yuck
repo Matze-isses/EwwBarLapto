@@ -2,16 +2,35 @@
  "cat /sys/class/power_supply/BAT0/capacity")
 
 (defpoll time :interval "10s"
-  "date '+%H:%M %b %d, %Y'")
+  "date '+%H:%M'")
+
+(defpoll date :interval "10s"
+  "date '+%d.%b'")
+
+
+(defwidget divider []
+    (box 
+      :orientation "h"
+      :space-evenly false
+      (label
+        :class "divider"
+        :text "|")
+      )
+    )
+
 
 (defwidget bar []
     (box
       :orientation "h" 
-      :space-evenly true 
+      :space-evenly false
       :class "workspace"
       (label 
-        :text "Battery: ${battery} %  | ")
+        :class "label"
+        :text "${battery} %")
+      (divider)
       time
+      (divider)
+      date
     )
   )
 
