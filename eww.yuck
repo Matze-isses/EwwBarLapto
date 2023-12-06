@@ -10,7 +10,7 @@
       :space-evenly true 
       :class "workspace"
       (label 
-        :text "Battery: ${battery} %")
+        :text "Battery: ${battery} %  | ")
       time
     )
   )
